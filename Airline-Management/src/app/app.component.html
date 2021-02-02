@@ -1,0 +1,14 @@
+<h1>Insurance Policies</h1>
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+  </tr>
+  <tr *ngFor="let airline of airlines">
+    <td>{{ airline.id }}</td>
+
+    <td>
+      <button (click)="deleteAirline(airline.id)">Delete</button>
+      <button (click)="updateAirline(airline)">Update</button>
+    </td>
+  </tr>
+</table>
