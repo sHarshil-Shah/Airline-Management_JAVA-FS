@@ -1,0 +1,20 @@
+<div class="container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Provider Name</th>
+                <th scope="col">Provider Code</th>
+                <th scope="col">Provider Type</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let airline of airlines">
+            <tr>
+                <th scope="row">{{ airline.id }}</th>
+                <td>{{ airline.providerName }}</td>
+                <td>{{ airline.providerCode }}</td>
+                <td>{{ airline.providerType }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

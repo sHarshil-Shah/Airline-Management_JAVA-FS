@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api'
+import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Airline } from '../classes/airline';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService implements InMemoryDbService {
 
-  constructor() { }
   createDb() {
-
-    let airLines = [
+    let airlines: Airline[] = [
       {
         id: 1, providerName: 'Jet Airways',
         providerCode: '9W-', providerType: 'Domestic'
@@ -19,6 +18,6 @@ export class DataService implements InMemoryDbService {
         providerCode: 'EK-', providerType: 'International'
       }
     ];
-    return { airLines };
+    return { airlines };
   }
 }

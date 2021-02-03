@@ -1,0 +1,42 @@
+<div>
+    <form [formGroup]="createAirlineForm">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Provider Name</mat-label>
+                <mat-select (selectionChange)="setCode($event)" formControlName="providerName">
+                    <mat-option value="INDIGO">INDIGO</mat-option>
+                    <mat-option value="SPICEJET">SPICEJET</mat-option>
+                    <mat-option value="AIR ASIA">AIR ASIA</mat-option>
+                    <mat-option value="GO AIR">GO AIR</mat-option>
+                    <mat-option value="JET AIRWAYS">JET AIRWAYS</mat-option>
+                    <mat-option value="AIR INDIA">AIR INDIA</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <label>
+                Provider Code:<!--  <span formControlName="providerCode">{{code}}</span> -->
+                <input type="text" [disabled]="true" formControlName="providerCode" class="form-control"> 
+            </label>
+        </div>
+        <div>  
+            <mat-form-field appearance="fill">
+                <mat-label>Provider Type</mat-label>
+                <mat-select formControlName="providerType">
+                    <mat-option value="Domestic">Domestic</mat-option>
+                    <mat-option value="International">International</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <div>
+                <button type="reset" routerLink="/create">Cancel</button>
+            </div>
+
+            <div>
+                <button type="button" (click)="createAirline()">Create</button>
+            </div>
+        </div>
+    </form>
+
+</div>

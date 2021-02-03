@@ -4,23 +4,42 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { InMemoryWebApiModule } from "angular-in-memory-web-api";
-import { DataService } from "./data.service";
-import { AirlineListComponent } from './airline-list/airline-list.component';
-import { AirlineCreateComponent } from './airline-create/airline-create.component';
-import { HttpClientModule } from '@angular/common/http';@NgModule({
+
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './services/data.service';
+import { ListAirlinesComponent } from './components/list-airlines/list-airlines.component';
+import { HttpClientAirlineService } from './services/http-client-airline.service';
+import { CreateAirlinesComponent } from './components/create-airlines/create-airlines.component';
+import { ModifyAirlinesComponent } from './components/modify-airlines/modify-airlines.component';
+import { DeleteAirlinesComponent } from './components/delete-airlines/delete-airlines.component';
+import { ViewAirlinesComponent } from './components/view-airlines/view-airlines.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+@NgModule({
   declarations: [
     AppComponent,
-    AirlineListComponent,
-    AirlineCreateComponent
+    ListAirlinesComponent,
+    CreateAirlinesComponent,
+    ModifyAirlinesComponent,
+    DeleteAirlinesComponent,
+    ViewAirlinesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    InMemoryWebApiModule.forRoot(DataService),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    environment.production ?
+      [] : InMemoryWebApiModule.forRoot(DataService),
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [HttpClientAirlineService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
