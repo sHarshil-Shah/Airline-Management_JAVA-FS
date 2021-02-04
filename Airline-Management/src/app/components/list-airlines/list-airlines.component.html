@@ -1,3 +1,16 @@
+<br/><br/>
+<h1>View AirlineProviders Information</h1>
+<form [formGroup]="listAirlineForm">
+      
+        <mat-form-field appearance="fill">
+            <mat-label>Filter By Provider Type</mat-label>
+            <mat-select (selectionChange)="filter($event)" formControlName="providerType">
+                
+                <mat-option value="Domestic">Domestic</mat-option>
+                <mat-option value="International">International</mat-option>
+            </mat-select>
+        </mat-form-field>
+        </form>
 <div class="container">
     <table class="table table-dark">
         <thead>

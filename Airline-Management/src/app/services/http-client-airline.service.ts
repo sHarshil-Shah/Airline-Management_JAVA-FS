@@ -29,6 +29,13 @@ export class HttpClientAirlineService extends AirlineService {
     );
   }
 
+  getAirlineByCode(providerCode: string): Observable<Airline> {
+    const url = `${this.airlinesUrl}/${providerCode}`;
+    return this.http.get<Airline>(url).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   addAirline(providerName: string, providerCode: string, providerType: string): Observable<Airline> {
     const airline = { providerName, providerCode, providerType };
 
@@ -46,16 +53,27 @@ export class HttpClientAirlineService extends AirlineService {
     );
   }
 
-  // searchAirline(term: string): Observable<Airline[]> {
-  //   term = term.trim();
-  //   // add safe, encoded search parameter if term is present
-  //   const options = term ?
-  //     { params: new HttpParams().set('name', term) } : {};
+  searchAirline(providerCode: string): Observable<Airline[]> {
+    providerCode = providerCode.trim();
+    // add safe, encoded search parameter if providerCode is present
+    const options = providerCode ?
+      { params: new HttpParams().set('providerCode', providerCode) } : {};
 
-  //   return this.http.get<Airline[]>(this.airlinesUrl, options).pipe(
-  //     catchError(this.handleError)
-  //   );
-  // }
+    return this.http.get<Airline[]>(this.airlinesUrl, options).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchAirlineByType(providerType: string): Observable<Airline[]> {
+    providerType = providerType.trim();
+    // add safe, encoded search parameter if providerCode is present
+    const options = providerType ?
+      { params: new HttpParams().set('providerType', providerType) } : {};
+
+    return this.http.get<Airline[]>(this.airlinesUrl, options).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   updateAirline(airline: Airline): Observable<Airline> {
     return this.http.put<Airline>(this.airlinesUrl, airline, cudOptions).pipe(

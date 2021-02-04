@@ -1,3 +1,5 @@
+<br/><br/>
+<h1>Create Flight</h1>
 <div>
     <form [formGroup]="createAirlineForm">
         <div>
@@ -14,12 +16,12 @@
             </mat-form-field>
         </div>
         <div>
-            <label>
-                Provider Code:<!--  <span formControlName="providerCode">{{code}}</span> -->
-                <input type="text" [disabled]="true" formControlName="providerCode" class="form-control"> 
-            </label>
+            <mat-form-field appearance="fill">
+                <mat-label>Provider Code</mat-label>
+                <input matInput formControlName="providerCode">
+            </mat-form-field>
         </div>
-        <div>  
+        <div>
             <mat-form-field appearance="fill">
                 <mat-label>Provider Type</mat-label>
                 <mat-select formControlName="providerType">
@@ -29,13 +31,7 @@
             </mat-form-field>
         </div>
         <div>
-            <div>
-                <button type="reset" routerLink="/create">Cancel</button>
-            </div>
-
-            <div>
-                <button type="button" (click)="createAirline()">Create</button>
-            </div>
+            <button type="button" (click)="createAirline()">Insert Flight</button>
         </div>
     </form>
 

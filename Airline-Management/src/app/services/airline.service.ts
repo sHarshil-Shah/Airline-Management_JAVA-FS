@@ -8,6 +8,7 @@ export abstract class AirlineService {
   abstract getAirline(id: number): Observable<Airline>;
   abstract addAirline(providerName: string, providerCode: string, providerType: string): Observable<Airline>;
   abstract deleteAirline(airline: Airline | number): Observable<Airline>;
-  // abstract searchAirline(term: string): Observable<Airline[]>;
+  abstract searchAirline(providerCode: string): Observable<Airline[]>;
+  abstract searchAirlineByType(providerType: string): Observable<Airline[]>;
   abstract updateAirline(airline: Airline): Observable<Airline>;
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { HttpClientAirlineService } from 'src/app/services/http-client-airline.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-airlines',
@@ -14,13 +15,15 @@ export class CreateAirlinesComponent implements OnDestroy {
 
   createAirlineForm = new FormGroup({
     providerName: new FormControl(''),
-    providerCode: new FormControl(''),
+    providerCode: new FormControl({value: '', disabled: true}),
     providerType: new FormControl('')
   });
 
   airlineSubscription: Subscription = new Subscription;
-  constructor(private airlineService: HttpClientAirlineService,
+  constructor(private titleService:Title, private airlineService: HttpClientAirlineService,
     private router: Router) {
+      this.titleService.setTitle("Create Flight");
+
     const providerCode = this.createAirlineForm.get('providerCode');
     if (providerCode)
       providerCode.disable();

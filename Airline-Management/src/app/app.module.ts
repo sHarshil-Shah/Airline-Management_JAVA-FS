@@ -14,10 +14,10 @@ import { HttpClientAirlineService } from './services/http-client-airline.service
 import { CreateAirlinesComponent } from './components/create-airlines/create-airlines.component';
 import { ModifyAirlinesComponent } from './components/modify-airlines/modify-airlines.component';
 import { DeleteAirlinesComponent } from './components/delete-airlines/delete-airlines.component';
-import { ViewAirlinesComponent } from './components/view-airlines/view-airlines.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {  MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CreateAirlinesComponent,
     ModifyAirlinesComponent,
     DeleteAirlinesComponent,
-    ViewAirlinesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatInputModule,
     environment.production ?
       [] : InMemoryWebApiModule.forRoot(DataService),
     BrowserAnimationsModule

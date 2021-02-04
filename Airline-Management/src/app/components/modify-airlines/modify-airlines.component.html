@@ -1,1 +1,34 @@
-<p>modify-airlines works!</p>
+<br/><br/>
+<h1>Update Flight Details</h1>
+<div>
+    <form [formGroup]="updateAirlineForm">
+      
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Provider Code</mat-label>
+                <mat-select formControlName="providerCode">
+                    <mat-option value="6E-">6E-</mat-option>
+                    <mat-option value="SG-">SG-</mat-option>
+                    <mat-option value="I5-">I5-</mat-option>
+                    <mat-option value="G8-">G8-</mat-option>
+                    <mat-option value="9W-">9W-</mat-option>
+                    <mat-option value="AI-">AI-</mat-option>
+                    <mat-option value="EK-">EK-</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Provider Type</mat-label>
+                <mat-select formControlName="providerType">
+                    <mat-option value="Domestic">Domestic</mat-option>
+                    <mat-option value="International">International</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="button" (click)="updateAirline()">Update Flight</button>
+        </div>
+    </form>
+
+</div>
