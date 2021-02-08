@@ -6,7 +6,7 @@
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Provider Code</mat-label>
-                <mat-select formControlName="providerCode">
+                <mat-select (selectionChange)="checkAirline($event)" formControlName="providerCode">
                     <mat-option value="6E-">6E-</mat-option>
                     <mat-option value="SG-">SG-</mat-option>
                     <mat-option value="I5-">I5-</mat-option>
@@ -20,14 +20,14 @@
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Provider Type</mat-label>
-                <mat-select formControlName="providerType">
+                <mat-select (selectionChange)="checkType($event)" formControlName="providerType">
                     <mat-option value="Domestic">Domestic</mat-option>
                     <mat-option value="International">International</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div>
-            <button type="button" (click)="deleteAirline()">Delete Flight</button>
+            <button [disabled]="checkButton" type="button" (click)="deleteAirline()">Delete Flight</button>
         </div>
     </form>
 

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClientAirlineService } from './services/http-client-airline.service';
-import {Title} from "@angular/platform-browser";
+import { Title } from "@angular/platform-browser";
+import { ContentObserver } from '@angular/cdk/observers';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import {Title} from "@angular/platform-browser";
 export class AppComponent {
   title = 'Airline-Management';
   constructor(private villainService: HttpClientAirlineService,
-    private router: Router, private titleService:Title) {   this.titleService.setTitle("Home");
+    private router: Router, private titleService: Title) {
+    this.titleService.setTitle("Home");
   }
 }
 

@@ -7,6 +7,7 @@
                 <mat-label>Provider Name</mat-label>
                 <mat-select (selectionChange)="setCode($event)" formControlName="providerName">
                     <mat-option value="INDIGO">INDIGO</mat-option>
+                    <mat-option value="EMIRATES">EMIRATES</mat-option>
                     <mat-option value="SPICEJET">SPICEJET</mat-option>
                     <mat-option value="AIR ASIA">AIR ASIA</mat-option>
                     <mat-option value="GO AIR">GO AIR</mat-option>
@@ -31,7 +32,7 @@
             </mat-form-field>
         </div>
         <div>
-            <button type="button" (click)="createAirline()">Insert Flight</button>
+            <button type="button" [disabled]="createAirlineForm.invalid" (click)="createAirline()">Insert Flight</button>
         </div>
     </form>
 
